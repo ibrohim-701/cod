@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>.0 Code Runner</title>
+    <link rel="stylesheet" href="coder.css">
+</head>
+<body>
+    <header>
+        <h1>Hayotbek Code Runner</h1>
+    </header>
+    <main>
+        <section class="editor">
+            <h2>JavaScript Editor</h2>
+            <textarea id="code" placeholder="Kod yozing..."></textarea>
+            <div class="buttons">
+                <button onclick="runCode()">Run Code</button>
+                <button onclick="saveCode()">Save</button>
+                <button onclick="copyCode()">Copy</button>
+            </div>
+        </section>
+        <section class="output">
+            <h2>Output</h2>
+            <pre id="output">Run your code to see output here</pre>
+            <button onclick="clearOutput()">Clear</button>
+        </section>
+    </main>
+    <script src="coder.js"></script>
+</body>
+</html>

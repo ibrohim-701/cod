@@ -1,0 +1,51 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #fff;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(2, 100px);
+    gap: 10px;
+}
+
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.item1 {
+    background: #009688;
+}
+
+.item2 {
+    background: #d84315;
+}
+
+.item3 {
+    background: #c0ca33;
+}   
+
+.item4 {
+    background: #0288d1;
+}
+
+.item5 {
+    background: #ef6c00;
+    size: 200px;
+}
+
+.item6 {
+    background: #8e24aa;
+}

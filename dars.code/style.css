@@ -1,0 +1,23 @@
+/* style.css faylida */
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.box {
+    background-color: #ffffff;
+    border: 2px solid #ccc;
+    padding: 30px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+/* Hover bo‘lganda kattalashadi */
+.box:hover {
+    transform: scale(1.1);
+    color: blueviolet;
+}

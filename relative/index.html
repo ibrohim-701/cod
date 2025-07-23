@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Box Misol</title>
+    <style>
+        body {
+            background-color: snow;
+            text-align: center;
+            color: blue;
+            margin: 0;
+            font-family: sans-serif;
+            background-image: url(https://i.pinimg.com/736x/5b/90/de/5b90de58655d970361082093582c4500.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .sticky-box {
+            position: sticky;
+            top: 10px;
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            border: 5px solid red;
+            background-color: lawngreen;
+            z-index: 1;
+        }
+
+        .high-box {
+            height: 2000px;
+            margin-top: 20px;
+            border: 5px solid blue;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Sticky qiymatga misol</h1>
+    <div class="sticky-box">Sticky qiymatga ega</div>
+    <div class="high-box">Katta balandlikka ega quti</div>
+</body>
+
+</html>

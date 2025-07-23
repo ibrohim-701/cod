@@ -1,0 +1,36 @@
+/* 1. .container ichidagi <p> ga stil */
+.container p {
+    color: darkblue;
+    font-weight: bold;
+}
+
+/* 2. .box ichidagi <p> va <span> ga stil */
+.box p {
+    color: darkgreen;
+}
+
+.box span {
+    color: purple;
+    font-style: italic;
+}
+
+/* 3. Tashqaridagi <p> — ya'ni .container dan tashqaridagi <p> */
+body > p {
+    color: crimson;
+    text-decoration: underline;
+}
+
+/* 4. <li> ichidagi <em> ga stil — avlod kombinatori */
+li em {
+    color: orange;
+}
+
+/* 5. <h2> dan keyingi birinchi <p> — yaqin qo‘shni kombinatori */
+h2 + p {
+    background-color: lightgray;
+}
+
+/* 6. <h2> dan keyingi barcha <p> lar — umumiy aka-uka kombinatori */
+h2 ~ p {
+    font-size: 18px;
+}

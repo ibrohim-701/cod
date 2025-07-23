@@ -1,0 +1,507 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #000;
+    background-color: #fff;
+}
+
+
+.eng_boshi {
+    background-color: #dbe8fb;
+    color: #333;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid #eee;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+}
+
+.nav-icons span {
+    margin-left: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 24px;
+    max-width: 500px;
+    margin: 0 auto 20px;
+    color: #3b0328;
+}
+
+.shop-btn {
+    background-color: #3b0328;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+.brand-logos {
+    background-color: #f6f0eb;
+    padding: 40px 20px;
+}
+
+.brands {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.brand img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.brand p {
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.products {
+    background-color: #f6f0eb;
+    padding: 40px 20px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding-bottom: 15px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.quick-view {
+    background-color: #3b0328;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.price {
+    font-size: 14px;
+    margin: 0;
+}
+
+.reviews {
+    display: block;
+    font-size: 12px;
+    color: #888;
+}
+
+.hero-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background-color: #f9f5f2;
+}
+
+.text-container {
+    flex: 1 1 400px;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.text-container .subheading {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    color: #888;
+}
+
+.text-container h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.text-container .description {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.button {
+    display: inline-block;
+    background-color: #4a0f29;
+    color: #fff;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.image-container {
+    flex: 1 1 300px;
+    max-width: 500px;
+    padding: 20px;
+    text-align: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.features-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px 20px;
+    background-color: #fdf4ec;
+    flex-wrap: wrap;
+}
+
+.feature-box {
+    background: white;
+    width: 280px;
+    border-radius: 6px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+}
+
+.feature-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.feature-box h3 {
+    background-color: #bccde4;
+    margin: 0;
+    padding: 12px 0;
+    font-size: 18px;
+    color: #222;
+}
+
+.feature-box p {
+    padding: 10px 15px 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+.waterless-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2f2f2;
+    padding: 60px 20px;
+}
+.waterless-text {
+    flex: 1 1 400px;
+    max-width: 500px;
+    padding: 20px;
+    background-color: #fff;
+    text-align: left;
+    margin-right: 20px;
+}
+
+.waterless-text .small-title {
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #555;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.waterless-text h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #2d2d2d;
+}
+
+.waterless-text .main-text {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.waterless-text .sub-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #666;
+}
+
+.waterless-image {
+    flex: 1 1 400px;
+    max-width: 600px;
+    padding: 20px;
+    text-align: center;
+}
+
+.waterless-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.content-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 60px 20px;
+    background-color: #fff;
+    gap: 30px;
+}
+
+.content-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.content-image,
+.content-text {
+    flex: 1 1 400px;
+    max-width: 600px;
+    padding: 10px 20px;
+}
+
+.content-image img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.content-text h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #2d2d2d;
+}
+
+.content-text p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #4a0f29;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.circle-info-section {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 60px 20px;
+    background-color: #f9f5f2;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.circle-info {
+    width: 180px;
+}
+
+.circle-img {
+    width: 160px;
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+}
+
+.circle-info p {
+    font-size: 14px;
+    color: #444;
+}
+
+.eco-banner {
+    background: url('eco-bg.jpg') no-repeat center center/cover;
+    padding: 100px 20px;
+    text-align: center;
+    color: #2d2d2d;
+}
+
+.eco-content {
+    background-color: #fff;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 40px 30px;
+    border-radius: 8px;
+}
+
+.eco-title {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.eco-content h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.eco-text {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.eco-btn {
+    background-color: #3c102e;
+    color: #fff;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.site-footer {
+    background-color: #fef8f2;
+    padding: 60px 30px 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.footer-logos {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.footer-logos img {
+    height: 40px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-links h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 6px;
+}
+
+.footer-links ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.subscribe-form {
+    display: flex;
+    border: 1px solid #000;
+    max-width: 300px;
+    margin-top: 10px;
+}
+
+.subscribe-form input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+}
+
+.subscribe-form button {
+    background-color: #3c102e;
+    color: #fff;
+    padding: 0 15px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    font-size: 13px;
+}
+
+.payment-icons img {
+    height: 20px;
+    margin-left: 10px;
+}

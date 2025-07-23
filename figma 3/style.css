@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fff;
+    color: #1c1c1c;
+}
+
+.top-banner {
+    background-color: #e0f5cf;
+    color: #333;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.navbar {
+    background-color: #0b1e2b;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.navbar nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.login-btn,
+.try-btn {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-btn {
+    background: white;
+    color: #0b1e2b;
+    border: none;
+}
+
+.try-btn {
+    background: #d6f980;
+    border: none;
+    color: #0b1e2b;
+}
+
+.hero {
+    background-color: #0b1e2b;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.get-started {
+    background: #d6f980;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.try-free-link {
+    background: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.logos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.video-intro {
+    position: relative;
+    text-align: center;
+}
+
+.video-bg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.watch-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #d6f980;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}

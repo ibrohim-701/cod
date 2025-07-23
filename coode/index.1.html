@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Venom Market</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #1e1e2f, #2e2e4e);
+            color: #eee;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 3rem;
+            color: #fff;
+            text-shadow: 0 0 10px #ff006a, 0 0 20px #ff006a;
+            margin-bottom: 40px;
+            animation: flicker 2s infinite;
+        }
+
+        @keyframes flicker {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.85;
+                text-shadow: 0 0 20px #ff0055;
+            }
+        }
+
+        .market {
+            max-width: 1200px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 0 30px rgba(255, 0, 100, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: #ff3b90;
+            margin-bottom: 20px;
+            border-left: 5px solid #ff3b90;
+            padding-left: 15px;
+            text-shadow: 0 0 5px #ff3b90aa;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .product {
+            background: linear-gradient(145deg, #2c2c47, #1c1c30);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(255, 0, 100, 0.1);
+        }
+
+        .product:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 0 20px rgba(255, 0, 100, 0.4);
+            background: linear-gradient(135deg, #3b3b5c, #2a2a44);
+        }
+
+        .product img {
+            max-width: 100%;
+            height: 160px;
+            object-fit: contain;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            background: #111;
+            padding: 10px;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .price-old {
+            text-decoration: line-through;
+            color: #999;
+            margin-right: 8px;
+        }
+
+        .price-new {
+            font-size: 1.1rem;
+            color: #ff006a;
+            font-weight: bold;
+            background: #ffffff11;
+            padding: 5px 10px;
+            border-radius: 8px;
+            display: inline-block;
+            box-shadow: 0 0 8px #ff006a55;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Venom Market</h1>
+
+
+    <div class="market">
+        <div class="section">
+            <h2>iPhone</h2>
+            <div class="product-list">
+
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbh0rX9M6Vx4VRzNlz7B5kL16OEELy1Xn4QQ&s"
+                        alt="iPhone 1" />
+                    <div class="product-name">iPhone 1</div>
+                    <div>
+                        <del class="price-old">1,000,000 UZS</del>
+                        <mark class="price-new">850,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://static1.srcdn.com/wordpress/wp-content/uploads/2022/03/second-generation-iPhone.jpg"
+                        alt="iPhone 2" />
+                    <div class="product-name">iPhone 2</div>
+                    <div>
+                        <del class="price-old">1,200,000 UZS</del>
+                        <mark class="price-new">1,000,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://images.merstatic.com/imgcache/resized/images/offer/2018/11/15//61nuxk3we6s-sl1024-1542283065-1542283305.jpg"
+                        alt="iPhone 3" />
+                    <div class="product-name">iPhone 3</div>
+                    <div>
+                        <del class="price-old">1,400,000 UZS</del>
+                        <mark class="price-new">1,200,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROBh8NrcLUQgrAIACJvL28PRBO3vSqWzKMfg&s"
+                        alt="iPhone 4" />
+                    <div class="product-name">iPhone 4</div>
+                    <div>
+                        <del class="price-old">1,600,000 UZS</del>
+                        <mark class="price-new">1,350,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://i5.walmartimages.com/seo/Used-Apple-iPhone-5s-16GB-Space-Gray-AT-T_447bbe31-72ba-47bc-a15c-bada30033068_1.f296a46dad5e579f690e29f3b8617a1f.jpeg"
+                        alt="iPhone 5" />
+                    <div class="product-name">iPhone 5</div>
+                    <div>
+                        <del class="price-old">1,800,000 UZS</del>
+                        <mark class="price-new">1,500,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://object.pscloud.io/cms/cms/Photo/img_0_77_1220_0.jpg" alt="iPhone 6" />
+                    <div class="product-name">iPhone 6</div>
+                    <div>
+                        <del class="price-old">2,000,000 UZS</del>
+                        <mark class="price-new">1,750,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://maxcom.uz/storage/product/dNH4Bw3vPXyk3y14o0tdU1tsyn4Q1YDQJsNZv7o4.png"
+                        alt="iPhone 7" />
+                    <div class="product-name">iPhone 7</div>
+                    <div>
+                        <del class="price-old">2,200,000 UZS</del>
+                        <mark class="price-new">1,900,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://i5.walmartimages.com/seo/Pre-Owned-Apple-iPhone-8-Plus-A1897-256GB-Gold-US-Model-GSM-Unlocked-Cell-Phone-Refurbished-Like-New_966605a2-66f6-4a0f-af96-ee00a205c25c.66237e5b08dc0e8ee065ef617573a7f4.jpeg"
+                        alt="iPhone 8" />
+                    <div class="product-name">iPhone 8</div>
+                    <div>
+                        <del class="price-old">2,400,000 UZS</del>
+                        <mark class="price-new">2,100,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://maxcom.uz/storage/product/xFRMVjhHC4UFuVTN2BUg44OhbgWCUCURdKhFd7CC.png"
+                        alt="iPhone 10" />
+                    <div class="product-name">iPhone 10</div>
+                    <div>
+                        <del class="price-old">2,800,000 UZS</del>
+                        <mark class="price-new">2,500,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://tezz.uz/uploads/images/product/594/thumbs/213465-10501050.jpg" alt="iPhone 11" />
+                    <div class="product-name">iPhone 11</div>
+                    <div>
+                        <del class="price-old">3,000,000 UZS</del>
+                        <mark class="price-new">2,700,000 UZS</mark>
+                    </div>
+                </div>
+
+
+                <div class="product">
+                    <img src="https://i5.walmartimages.com/seo/Apple-iPhone-12-Mini-64GB-128GB-256GB-All-Colors-Factory-Unlocked-Smartphone-Good-Condition_72803c78-7209-4996-9644-9cff3048e292.aac9c9ca839fe1f6ae37d76e3b799661.jpeg"
+                        alt="iPhone 12" />
+                    <div class="product-name">iPhone 12</div>
+                    <div>
+                        <del class="price-old">3,200,000 UZS</del>
+                        <mark class="price-new">2,900,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://maxcom.uz/storage/product/wkNtJDXYR5wO5iAF8JnnhYiJmgupft1PHaJTPl4Z.jpeg"
+                        alt="iPhone 13" />
+                    <div class="product-name">iPhone 13</div>
+                    <div>
+                        <del class="price-old">3,400,000 UZS</del>
+                        <mark class="price-new">3,100,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://m.media-amazon.com/images/I/618Bb+QzCmL._UF1000,1000_QL80_.jpg" alt="iPhone 14" />
+                    <div class="product-name">iPhone 14</div>
+                    <div>
+                        <del class="price-old">3,600,000 UZS</del>
+                        <mark class="price-new">3,300,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNPmD3YNOZ_-bO-19Z7tEliZheuMJkoQJ12g&s"
+                        alt="iPhone 15" />
+                    <div class="product-name">iPhone 15</div>
+                    <div>
+                        <del class="price-old">3,800,000 UZS</del>
+                        <mark class="price-new">3,500,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://castore.uz/upload/iblock/7aa/1rhqb53345dgh9g6js96j2qliez2nawf/smartfon-apple-iphone-16-128gb-pink.jpg"
+                        alt="iPhone 16" />
+                    <div class="product-name">iPhone 16</div>
+                    <div>
+                        <del class="price-old">4,000,000 UZS</del>
+                        <mark class="price-new">3,700,000 UZS</mark>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Samsung</h2>
+            <div class="product-list">
+
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLIJsAh59pOO4mHIJPvCK3EuVrn6e7BfpexQ&s"
+                        alt="Samsung 1" />
+                    <div class="product-name">Samsung 1</div>
+                    <div>
+                        <del class="price-old">900,000 UZS</del>
+                        <mark class="price-new">750,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKg508exDQuWyvWFApxzITeo2G7jCsyleWMg&s"
+                        alt="Samsung 2" />
+                    <div class="product-name">Samsung 2</div>
+                    <div>
+                        <del class="price-old">1,000,000 UZS</del>
+                        <mark class="price-new">850,000 UZS</mark>
+                    </div>
+                </div>
+
+
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSolSl2NJI48EzEcWkyHDLp8Tkpda2L47Xn8Q&s"
+                        alt="Samsung 3" />
+                    <div class="product-name">Samsung 3</div>
+                    <div>
+                        <del class="price-old">1,100,000 UZS</del>
+                        <mark class="price-new">950,000 UZS</mark>
+                    </div>
+                </div>
+
+
+                <div class="product">
+                    <img src="https://toptop.uz/storage/product/photos/j4BeJl3HeAAjf2z_2.jpg" alt="Samsung 4" />
+                    <div class="product-name">Samsung 4</div>
+                    <div>
+                        <del class="price-old">1,200,000 UZS</del>
+                        <mark class="price-new">1,050,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxVr61g6bbkHYf6kcMSqPZb1d6XuXJMC4xNQ&s"
+                        alt="Samsung 5" />
+                    <div class="product-name">Samsung 5</div>
+                    <div>
+                        <del class="price-old">1,300,000 UZS</del>
+                        <mark class="price-new">1,150,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdb2z5BLZnd9q56mzptR80MzVjJDWAhQSfQQ&s"
+                        alt="Samsung 6" />
+                    <div class="product-name">Samsung 6</div>
+                    <div>
+                        <del class="price-old">1,400,000 UZS</del>
+                        <mark class="price-new">1,250,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU3t52j-ax-c2WwPhW_j3vI0EY__OZLB4qpQ&s"
+                        alt="Samsung 7" />
+                    <div class="product-name">Samsung 7</div>
+                    <div>
+                        <del class="price-old">1,500,000 UZS</del>
+                        <mark class="price-new">1,350,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://olcha.uz/image/original/products/2017-12-26/samsung-galaxy-s8-midnight-black-2-961-1.jpg"
+                        alt="Samsung 8" />
+                    <div class="product-name">Samsung 8</div>
+                    <div>
+                        <del class="price-old">1,600,000 UZS</del>
+                        <mark class="price-new">1,450,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS93FBk_JL-hHo0NApgO6A5WJ9lo6du94Wxw&s"
+                        alt="Samsung 9" />
+                    <div class="product-name">Samsung 9</div>
+                    <div>
+                        <del class="price-old">1,700,000 UZS</del>
+                        <mark class="price-new">1,550,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://img.global.news.samsung.com/ru/wp-content/uploads/2019/08/Note10_Auraglow1.jpg"
+                        alt="Samsung 10" />
+                    <div class="product-name">Samsung 10</div>
+                    <div>
+                        <del class="price-old">1,800,000 UZS</del>
+                        <mark class="price-new">1,650,000 UZS</mark>
+                    </div>
+                </div>
+
+
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz_UMFH_Znz3g5ywRThNuSELD1cHJ9d6EK3A&s"
+                        alt="Samsung 11" />
+                    <div class="product-name">Samsung 11</div>
+                    <div>
+                        <del class="price-old">1,900,000 UZS</del>
+                        <mark class="price-new">1,750,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEld-6ilEOnihJadvvkA-xp2UR7jTlr-P9xw&s"
+                        alt="Samsung 12" />
+                    <div class="product-name">Samsung 12</div>
+                    <div>
+                        <del class="price-old">2,000,000 UZS</del>
+                        <mark class="price-new">1,850,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSX73Q2CamoAmXrRjdrclc-PKPvZLqYdTfE5A&s"
+                        alt="Samsung 13" />
+                    <div class="product-name">Samsung 13</div>
+                    <div>
+                        <del class="price-old">2,100,000 UZS</del>
+                        <mark class="price-new">1,950,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAIX38WLGm79SCj0_UtNLVv3vY5leZYFjE9A&s"
+                        alt="Samsung 14" />
+                    <div class="product-name">Samsung 14</div>
+                    <div>
+                        <del class="price-old">2,200,000 UZS</del>
+                        <mark class="price-new">2,050,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://api.radius.uz/storage/products/January2024/kHmaOLKwt3gekWV1F5C7.webp"
+                        alt="Samsung 15" />
+                    <div class="product-name">Samsung 15</div>
+                    <div>
+                        <del class="price-old">2,300,000 UZS</del>
+                        <mark class="price-new">2,150,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIPxMfhVY9nFAUlSVJgcIAxybCdV-fcXyu9w&s"
+                        alt="Samsung 16" />
+                    <div class="product-name">Samsung 16</div>
+                    <div>
+                        <del class="price-old">2,400,000 UZS</del>
+                        <mark class="price-new">2,250,000 UZS</mark>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="section">
+            <h2>Redmi</h2>
+            <div class="product-list">
+
+                <div class="product">
+                    <img src="https://fdn2.gsmarena.com/vv/bigpic/Xiaomi-Hongmi-Redmi-1s.jpg" alt="Redmi 1" />
+                    <div class="product-name">Redmi 1</div>
+                    <div>
+                        <del class="price-old">800,000 UZS</del>
+                        <mark class="price-new">650,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-2-1.jpg" alt="Redmi 2" />
+                    <div class="product-name">Redmi 2</div>
+                    <div>
+                        <del class="price-old">900,000 UZS</del>
+                        <mark class="price-new">750,000 UZS</mark>
+                    </div>
+                </div>
+
+
+                <div class="product">
+                    <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-3-1.jpg" alt="Redmi 3" />
+                    <div class="product-name">Redmi 3</div>
+                    <div>
+                        <del class="price-old">1,000,000 UZS</del>
+                        <mark class="price-new">850,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-4-1.jpg" alt="Redmi 4" />
+                    <div class="product-name">Redmi 4</div>
+                    <div>
+                        <del class="price-old">1,100,000 UZS</del>
+                        <mark class="price-new">950,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-5-1.jpg" alt="Redmi 5" />
+                    <div class="product-name">Redmi 5</div>
+                    <div>
+                        <del class="price-old">1,200,000 UZS</del>
+                        <mark class="price-new">1,050,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-6-1.jpg" alt="Redmi 6" />
+                    <div class="product-name">Redmi 6</div>
+                    <div>
+                        <del class="price-old">1,300,000 UZS</del>
+                        <mark class="price-new">1,150,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-7-1.jpg" alt="Redmi 7" />
+                    <div class="product-name">Redmi 7</div>
+                    <div>
+                        <del class="price-old">1,400,000 UZS</del>
+                        <mark class="price-new">1,250,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://mini-io-api.texnomart.uz/catalog/product/865/86561/166369/15e9ad2f-93a5-4de4-88f9-b87c0c1bec4f.jpg"
+                        alt="Redmi 8" />
+                    <div class="product-name">Redmi 8</div>
+                    <div>
+                        <del class="price-old">1,500,000 UZS</del>
+                        <mark class="price-new">1,350,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-9-1.jpg" alt="Redmi 9" />
+                    <div class="product-name">Redmi 9</div>
+                    <div>
+                        <del class="price-old">1,600,000 UZS</del>
+                        <mark class="price-new">1,450,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-10-1.jpg" alt="Redmi 10" />
+                    <div class="product-name">Redmi 10</div>
+                    <div>
+                        <del class="price-old">1,700,000 UZS</del>
+                        <mark class="price-new">1,550,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4DrjWN1PBrGwQNkPPo8NL8D0qn_7bEl5RQA&s"
+                        alt="Redmi 11" />
+                    <div class="product-name">Redmi 11</div>
+                    <div>
+                        <del class="price-old">1,800,000 UZS</del>
+                        <mark class="price-new">1,650,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://olcha.uz/image/600x600/products/Lqn3Bt1Fs2wKpAvRnQRIXxGQ4FqZIGBkw2ORJLX9kCYw2xTUzhIJ6RAS9sr4.jpg"
+                        alt="Redmi 12" />
+                    <div class="product-name">Redmi 12</div>
+                    <div>
+                        <del class="price-old">1,900,000 UZS</del>
+                        <mark class="price-new">1,750,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-redmi-note-13-1.jpg" alt="Redmi 13" />
+                    <div class="product-name">Redmi 13</div>
+                    <div>
+                        <del class="price-old">2,000,000 UZS</del>
+                        <mark class="price-new">1,850,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://mi-store.uz/wp-content/uploads/2025/01/photo_2025_01_16_17_02_4320_2_.jpg"
+                        alt="Redmi 14" />
+                    <div class="product-name">Redmi 14</div>
+                    <div>
+                        <del class="price-old">2,100,000 UZS</del>
+                        <mark class="price-new">1,950,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://mi-store.uz/wp-content/uploads/2025/03/1a7fb22413d936eb44991c934808b4f6_800x800_100.png"
+                        alt="Redmi 15" />
+                    <div class="product-name">Redmi 15</div>
+                    <div>
+                        <del class="price-old">2,200,000 UZS</del>
+                        <mark class="price-new">2,050,000 UZS</mark>
+                    </div>
+                </div>
+
+                <div class="product">
+                    <img src="https://www.mobiledokan.co/wp-content/uploads/2023/11/Xiaomi-15-Pro-Gray.webp"
+                        alt="Redmi 16" />
+                    <div class="product-name">Redmi 16</div>
+                    <div>
+                        <del class="price-old">2,300,000 UZS</del>
+                        <mark class="price-new">2,150,000 UZS</mark>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Murakkab HTML & CSS Sahifa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">Murakkab Sahifa</div>
+        <ul class="nav-links">
+            <li><a href="#home">Bosh sahifa</a></li>
+            <li><a href="#about">Biz haqimizda</a></li>
+            <li><a href="#services">Xizmatlar</a></li>
+            <li><a href="#contact">Aloqa</a></li>
+        </ul>
+    </nav>
+    <header id="home">
+        <h1>HTML va CSS bilan zamonaviy sahifa</h1>
+        <p>Responsiv dizayn va chiroyli elementlar.</p>
+    </header>
+    <section id="about">
+        <h2>Biz haqimizda</h2>
+        <p>Biz zamonaviy veb sahifalar yaratamiz.</p>
+    </section>
+    <section id="services">
+        <h2>Xizmatlar</h2>
+        <div class="card-container">
+            <div class="card" data-modal="modal1">
+                <h3>Veb Dizayn</h3>
+                <p>Chiroyli va responsiv dizaynlar.</p>
+            </div>
+            <div class="card" data-modal="modal2">
+                <h3>Frontend Dasturlash</h3>
+                <p>HTML, CSS va JavaScript asosida.</p>
+            </div>
+            <div class="card" data-modal="modal3">
+                <h3>Konsalting</h3>
+                <p>IT sohasida maslahatlar.</p>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Aloqa</h2>
+        <form id="contact-form">
+            <input type="text" name="name" placeholder="Ismingiz" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Xabaringiz"></textarea>
+            <button type="submit">Yuborish</button>
+            <div id="form-status"></div>
+        </form>
+    </section>
+
+    <!-- Modal oynalar -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Veb Dizayn</h2>
+            <p>Bizning veb dizayn xizmatimiz orqali siz zamonaviy, responsiv va foydalanuvchi uchun qulay saytga ega
+                bo‘lasiz.</p>
+        </div>
+    </div>
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Frontend Dasturlash</h2>
+            <p>HTML, CSS va JavaScript yordamida tezkor va interaktiv veb ilovalar yaratamiz.</p>
+        </div>
+    </div>
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Konsalting</h2>
+            <p>IT sohasida tajribali mutaxassislarimiz sizga maslahat beradi va loyihangizni rivojlantirishga yordam
+                beradi.</p>
+        </div>
+    </div>
+
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        // Modal oynalar
+        document.querySelectorAll('.card').forEach(card => {
+            card.onclick = function () {
+                document.getElementById(card.dataset.modal).style.display = 'block';
+            }
+        });
+        document.querySelectorAll('.close').forEach(closeBtn => {
+            closeBtn.onclick = function () {
+                closeBtn.closest('.modal').style.display = 'none';
+            }
+        });
+        window.onclick = function (event) {
+            document.querySelectorAll('.modal').forEach(modal => {
+                if (event.target == modal) modal.style.display = "none";
+            });
+        };
+
+        // EmailJS sozlash
+        (function () {
+            emailjs.init("user_yourUserID");
+        })();
+
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            emailjs.sendForm('your_serviceID', 'your_templateID', this)
+                .then(function () {
+                    document.getElementById('form-status').innerText = "Xabaringiz yuborildi!";
+                }, function (error) {
+                    document.getElementById('form-status').innerText = "Xatolik yuz berdi!";
+                });
+        });
+    </script>
+</body>
+
+</html>

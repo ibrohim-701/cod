@@ -1,0 +1,38 @@
+<svg width="800px" height="600px">
+    <rect width="500" height="100" style="fill:blue;stroke:black;stroke-width:4" />
+    <rect width="500" height="100" y="100" style="fill:white;stroke:black;stroke-width:4" />
+    <rect width="500" height="100" y="200" style="fill:green;stroke:black;stroke-width:4" />
+    <line x1="2" y1="100" x2="498" y2="100" style="stroke:red;stroke-width:5" />
+    <line x1="2" y1="200" x2="498" y2="200" style="stroke:red;stroke-width:5" />
+
+    <ellipse cx="70" cy="50" rx="35" ry="35" fill="url(#grad1)" />
+    <defs>
+        <radialGradient id="grad1" cx="50%" cy="50%" r="60%" fx="100%" fy="50%">
+            <stop offset="68%" style="stop-color:blue;stop-opacity:1" />
+            <stop offset="69%" style="stop-color:white;stop-opacity:1" />
+        </radialGradient>
+    </defs>
+    <polygon id="yulduz" 
+             points="216,16 210,35 225,23.5 207,23.5 222,35" 
+             style="fill:white;stroke-width:1;stroke:white">
+        <animateTransform attributeName="transform" 
+                          attributeType="XML" 
+                          type="rotate" 
+                          from="0 216 26.5" 
+                          to="360 216 26.5" 
+                          dur="10s"
+                          repeatCount="indefinite" 
+        />
+    </polygon>
+    <use xlink:href="#yulduz" x="25" y="" />
+    <use xlink:href="#yulduz" x="50" y="" />
+    <use xlink:href="#yulduz" x="-25" y="25" />
+    <use xlink:href="#yulduz" x="" y="25" />
+    <use xlink:href="#yulduz" x="50" y="25" />
+    <use xlink:href="#yulduz" x="25" y="25" />
+    <use xlink:href="#yulduz" x="-50" y="50" />
+    <use xlink:href="#yulduz" x="-25" y="50" />
+    <use xlink:href="#yulduz" x="" y="50" />
+    <use xlink:href="#yulduz" x="25" y="50" />
+    <use xlink:href="#yulduz" x="50" y="50" />
+</svg>

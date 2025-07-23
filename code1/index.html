@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Minecraft uslubida bloklar va hayvon tuxumlari</title>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        #panel {
+            display: none;
+            position: absolute;
+            top: 20px;
+            left: 10px;
+            background: rgba(255,255,255,0.95);
+            padding: 10px;
+            border-radius: 8px;
+            z-index: 2;
+            gap: 10px;
+            display: flex;
+        }
+        .block-btn {
+            width: 36px;
+            height: 36px;
+            border: 2px solid #333;
+            border-radius: 4px;
+            margin-right: 8px;
+            cursor: pointer;
+            box-sizing: border-box;
+            background: #fffde7;
+        }
+        .block-btn.selected { outline: 3px solid #ff9800; }
+        /* Minecraft tuxumlari */
+        .egg-sheep   { background: url('https://static.wikia.nocookie.net/minecraft_gamepedia/images/2/2c/Sheep_Spawn_Egg_JE2_BE2.png') center/cover no-repeat #fffde7; }
+        .egg-cow     { background: url('https://static.wikia.nocookie.net/minecraft_gamepedia/images/7/7e/Cow_Spawn_Egg_JE2_BE2.png') center/cover no-repeat #fffde7; }
+        .egg-horse   { background: url('https://static.wikia.nocookie.net/minecraft_gamepedia/images/6/6e/Horse_Spawn_Egg_JE2_BE2.png') center/cover no-repeat #fffde7; }
+        .egg-chicken { background: url('https://static.wikia.nocookie.net/minecraft_gamepedia/images/2/2d/Chicken_Spawn_Egg_JE2_BE2.png') center/cover no-repeat #fffde7; }
+        .egg-pig     { background: url('https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/5a/Pig_Spawn_Egg_JE2_BE2.png') center/cover no-repeat #fffde7; }
+        .egg-dog     { background: url('https://static.wikia.nocookie.net/minecraft_gamepedia/images/7/7a/Wolf_Spawn_Egg_JE2_BE2.png') center/cover no-repeat #fffde7; }
+        .egg-cat     { background: url('https://static.wikia.nocookie.net/minecraft_gamepedia/images/6/6e/Cat_Spawn_Egg_JE2_BE2.png') center/cover no-repeat #fffde7; }
+        /* Bloklar */
+        .block-grass { background: #4CAF50; }
+        .block-stone { background: #888; }
+        .block-sand  { background: #F4E285; }
+        .block-water { background: #2196F3; }
+        .block-dirt  { background: #A0522D; }
+        .block-tree  { background: url('https://cdn-icons-png.flaticon.com/512/427/427735.png') center/cover no-repeat #b6e388; }
+        .block-wood  { background: #b97a57; }
+        .block-leaf  { background: #228B22; }
+        .block-brick { background: #b22222; }
+        .block-snow  { background: #fff; }
+        /* Hayvonlar */
+        .animal-entity {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            pointer-events: none;
+            z-index: 5;
+            animation: animal-pop 1s;
+        }
+        @keyframes animal-pop {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div id="panel"></div>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.153.0/build/three.min.js"></script>
+    <script>
+        // O'lchamlar
+        const WIDTH = 50, DEPTH = 20;
+        let HEIGHT = 1;
+        let camera, scene, renderer;
+        let raycaster = new THREE.Raycaster();
+        let mouse = new THREE.Vector2();
+        let blocks = {};
+
+        // Bloklar va tuxumlar
+        const blockTypes = [
+            { type: 'grass', color: 0x4CAF50 },
+            { type: 'stone', color: 0x888888 },
+            { type: 'sand',  color: 0xF4E285 },
+            { type: 'water', color: 0x2196F3 },
+            { type: 'dirt',  color: 0xA0522D },
+            { type: 'tree',  color: 0x228B22 },
+            { type: 'wood',  color: 0xb97a57 },
+            { type: 'leaf',  color: 0x228B22 },
+            { type: 'brick', color: 0xb22222 },
+            { type: 'snow',  color: 0xffffff }
+        ];
+        const eggs = [
+            {
+                type: 'sheep', 
+                eggIcon: 'https://static.wikia.nocookie.net/minecraft_gamepedia/images/2/2c/Sheep_Spawn_Egg_JE2_BE2.png',
+                animalIcon: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f411.png'
+            },
+            {
+                type: 'cow', 
+                eggIcon: 'https://static.wikia.nocookie.net/minecraft_gamepedia/images/7/7e/Cow_Spawn_Egg_JE2_BE2.png',
+                animalIcon: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f404.png'
+            },
+            {
+                type: 'horse', 
+                eggIcon: 'https://static.wikia.nocookie.net/minecraft_gamepedia/images/6/6e/Horse_Spawn_Egg_JE2_BE2.png',
+                animalIcon: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f40e.png'
+            },
+            {
+                type: 'chicken', 
+                eggIcon: 'https://static.wikia.nocookie.net/minecraft_gamepedia/images/2/2d/Chicken_Spawn_Egg_JE2_BE2.png',
+                animalIcon: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f414.png'
+            },
+            {
+                type: 'pig', 
+                eggIcon: 'https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/5a/Pig_Spawn_Egg_JE2_BE2.png',
+                animalIcon: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f416.png'
+            },
+            {
+                type: 'dog', 
+                eggIcon: 'https://static.wikia.nocookie.net/minecraft_gamepedia/images/7/7a/Wolf_Spawn_Egg_JE2_BE2.png',
+                animalIcon: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f415.png'
+            },
+            {
+                type: 'cat', 
+                eggIcon: 'https://static.wikia.nocookie.net/minecraft_gamepedia/images/6/6e/Cat_Spawn_Egg_JE2_BE2.png',
+                animalIcon: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f408.png'
+            }
+        ];
+        let currentBlock = blockTypes[0];
+        let currentEgg = eggs[0];
+        let mode = "block"; // "block" yoki "egg"
+
+        // Panel yaratish
+        const panel = document.getElementById('panel');
+        function renderBlockPanel() {
+            panel.innerHTML = '';
+            blockTypes.forEach((b, i) => {
+                const btn = document.createElement('div');
+                btn.className = `block-btn block-${b.type}` + (i === 0 ? ' selected' : '');
+                btn.title = b.type.charAt(0).toUpperCase() + b.type.slice(1);
+                btn.onclick = () => {
+                    document.querySelectorAll('.block-btn').forEach(el => el.classList.remove('selected'));
+                    btn.classList.add('selected');
+                    currentBlock = b;
+                    mode = "block";
+                };
+                panel.appendChild(btn);
+            });
+            currentBlock = blockTypes[0];
+            mode = "block";
+        }
+        function renderEggPanel() {
+            panel.innerHTML = '';
+            eggs.forEach((egg, i) => {
+                const btn = document.createElement('div');
+                btn.className = `block-btn egg-${egg.type}` + (i === 0 ? ' selected' : '');
+                btn.title = egg.type.charAt(0).toUpperCase() + egg.type.slice(1) + " tuxumi";
+                btn.onclick = () => {
+                    document.querySelectorAll('.block-btn').forEach(el => el.classList.remove('selected'));
+                    btn.classList.add('selected');
+                    currentEgg = egg;
+                    mode = "egg";
+                };
+                panel.appendChild(btn);
+            });
+            currentEgg = eggs[0];
+            mode = "egg";
+        }
+
+        // Sahna va kamera
+        function setupScene() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.set(WIDTH / 2, 40, DEPTH + 40);
+
+            // Yorug‘lik
+            const light = new THREE.DirectionalLight(0xffffff, 1);
+            light.position.set(10, 40, 10);
+            scene.add(light);
+            scene.add(new THREE.AmbientLight(0x888888));
+
+            // Zamin yaratish (1000 ta blok)
+            blocks = {};
+            let count = 0;
+            for (let x = 0; x < WIDTH && count < 1000; x++) {
+                for (let z = 0; z < DEPTH && count < 1000; z++) {
+                    addBlock(x, 0, z, blockTypes[0].color);
+                    count++;
+                }
+            }
+        }
+
+        // Renderer
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Blok qo‘shish (faqat yer)
+        function addBlock(x, y, z, color) {
+            const geometry = new THREE.BoxGeometry(1, 1, 1);
+            const material = new THREE.MeshLambertMaterial({ color });
+            const mesh = new THREE.Mesh(geometry, material);
+            mesh.position.set(x, y, z);
+            scene.add(mesh);
+            blocks[`${x},${y},${z}`] = mesh;
+        }
+
+        // Hayvon entitysini joylashtirish (2D rasm)
+        function spawnAnimalEntity(x, y, z, animalIcon) {
+            // 3D koordinatani 2D ekranga proyeksiya qilish
+            const vector = new THREE.Vector3(x + 0.5, y + 0.5, z + 0.5);
+            vector.project(camera);
+            const sx = (vector.x * 0.5 + 0.5) * window.innerWidth;
+            const sy = (-vector.y * 0.5 + 0.5) * window.innerHeight;
+
+            const img = document.createElement('img');
+            img.src = animalIcon;
+            img.className = "animal-entity";
+            img.style.left = (sx - 20) + "px";
+            img.style.top = (sy - 20) + "px";
+            document.body.appendChild(img);
+            setTimeout(() => img.remove(), 2000);
+        }
+
+        // Sichqoncha hodisalari
+        renderer.domElement.addEventListener('pointerdown', function (event) {
+            mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+            mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
+            raycaster.setFromCamera(mouse, camera);
+            // Faqat yer bloklari uchun
+            const intersects = raycaster.intersectObjects(Object.values(blocks));
+            if (intersects.length > 0) {
+                const obj = intersects[0];
+                const pos = obj.object.position;
+                if (event.button === 0) {
+                    // Chap tugma: blok yoki tuxum
+                    const norm = obj.face.normal;
+                    const nx = pos.x + norm.x;
+                    const ny = pos.y + norm.y;
+                    const nz = pos.z + norm.z;
+                    if (mode === "block") {
+                        addBlock(nx, ny, nz, currentBlock.color);
+                    } else if (mode === "egg") {
+                        spawnAnimalEntity(nx, ny, nz, currentEgg.animalIcon);
+                    }
+                }
+            }
+        });
+        // O‘ng tugmani menyu chiqmasligi uchun
+        window.addEventListener('contextmenu', e => e.preventDefault());
+
+        // Kamera boshqaruvi (oddiy aylantirish)
+        let isDragging = false, prevX, prevY, theta = 0, phi = 0;
+        renderer.domElement.addEventListener('mousedown', e => {
+            if (e.button === 1) return;
+            isDragging = true; prevX = e.clientX; prevY = e.clientY;
+        });
+        renderer.domElement.addEventListener('mouseup', e => isDragging = false);
+        renderer.domElement.addEventListener('mousemove', e => {
+            if (isDragging) {
+                theta -= (e.clientX - prevX) * 0.01;
+                phi -= (e.clientY - prevY) * 0.01;
+                phi = Math.max(-Math.PI / 2 + 0.1, Math.min(Math.PI / 2 - 0.1, phi));
+                camera.position.x = WIDTH / 2 + Math.sin(theta) * 60 * Math.cos(phi);
+                camera.position.z = DEPTH / 2 + Math.cos(theta) * 60 * Math.cos(phi);
+                camera.position.y = 20 + Math.sin(phi) * 60;
+                camera.lookAt(WIDTH / 2, 2, DEPTH / 2);
+                prevX = e.clientX; prevY = e.clientY;
+            }
+        });
+        // Zoom
+        renderer.domElement.addEventListener('wheel', e => {
+            camera.position.addScaledVector(camera.getWorldDirection(new THREE.Vector3()), e.deltaY * 0.01);
+        });
+
+        // Dastlabki kamera joylashuvi
+        function resetCamera() {
+            camera.position.set(WIDTH / 2, 40, DEPTH + 40);
+            camera.lookAt(WIDTH / 2, 2, DEPTH / 2);
+        }
+
+        // Animatsiya
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        }
+
+        // Oyna o‘lchami o‘zgarsa
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // E yoki Q tugmasi bilan panelni ko‘rsatish
+        document.addEventListener('keydown', function (e) {
+            if (e.key.toLowerCase() === 'e') {
+                renderBlockPanel();
+                panel.style.display = panel.style.display === 'flex' ? 'none' : 'flex';
+            }
+            if (e.key.toLowerCase() === 'q') {
+                renderEggPanel();
+                panel.style.display = panel.style.display === 'flex' ? 'none' : 'flex';
+            }
+        });
+
+        // Panelni dastlab bloklar bilan ochish
+        renderBlockPanel();
+
+        // Boshlang‘ich sahna
+        setupScene();
+        resetCamera();
+        animate();
+    </script>
+</body>
+</html>

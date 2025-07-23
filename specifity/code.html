@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars</title>
+    <style>
+        /* Avlod kombinatori: barcha div ichidagi p elementlar */
+        div h1 {
+            color: red;
+        }
+
+        /* To'g'ridan-to'g'ri farzandlar */
+        div > h2 {
+            color: blue;
+        }
+
+        /* Darhol keyingi aka-uka */
+        h2 + h1 {
+            color: green;
+        }
+
+
+        h2 ~ h2 {
+            color: orangered;
+        }
+        h1 + h2 {
+            color: rgb(0, 8, 255);
+        }
+        .center-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 10vh;
+            color: gold;
+        }
+
+        .center-box p {
+            font-size: 50px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="center-box">
+        <p>Mashinalar haqida ma'lumot</p>
+    </div>
+
+
+    <div>
+        <h1>Bu BMW M5</h1>
+        <h2>
+            Model turi: Yuqori tezlikdagi sedan (sport sedan)<br>
+            Dvigatel: 4.4 litrli V8 twin-turbo, 600+ ot kuchi<br>
+            0 dan 100 km/soatgacha: ~3.3 soniya<br>
+            Transmissiya: 8 pog'onali avtomatik, xDrive tizimi<br>
+            Ichki makon: Sport o'rinlar, zamonaviy texnologiyalar<br>
+            Shiori: “Sheer Driving Pleasure”
+        </h2>
+
+        <section>
+            <h1>Bu esa BMW M8</h1>
+            <h2>
+                BMW M8 — flagman sport modeli<br>
+                Model turlari: M8 Coupe, Convertible, Gran Coupe<br>
+                Dvigatel: 4.4L V8 twin-turbo, 625 ot kuchi<br>
+                Tezlanish: 0-100 km/soat — ~3.2 soniya<br>
+                Transmissiya: 8 pog'onali avtomatik, xDrive<br>
+                Ichki dizayn: Nappa charm, iDrive tizimi
+            </h2>
+        </section>
+    </div>
+
+    <!-- Mercedes-Benz -->
+    <h1>Bu esa Mercedes</h1>
+    <h2>
+        Bosh ofisi: Shtutgart, Germaniya<br>
+        Ishlab chiqaruvchi: Mercedes-Benz Group AG<br>
+        Modellar: C-Class, E-Class, S-Class, G-Class, EQ seriyalari<br>
+        Shiori: “The Best or Nothing”
+    </h2>
+
+    <!-- Jentra -->
+    <h1>Bu esa Jentra</h1>
+    <h2>
+        Ishlab chiqaruvchi: UzAuto Motors (O‘zbekiston)<br>
+        Asos modeli: Daewoo Gentra / Chevrolet Lacetti<br>
+        Dvigatel: 1.5L benzinli<br>
+        Uzatish: 5 mexanik / 6 avtomatik<br>
+        Afzallik: Arzon, ishonchli, ehtiyot qismlar mavjud<br>
+        Kamchiligi: Sifat past, texnologiyalar kam
+    </h2>
+
+</body>
+</html>

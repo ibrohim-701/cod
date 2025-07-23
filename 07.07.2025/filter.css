@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 40px;
+}
+.one{
+    width: 300px;
+    cursor: pointer;
+    height: 300px;
+    border-radius: 5px;
+    transition: .9s;
+    background: blue;
+}
+main .one:nth-child(1):hover{
+    filter: blur(20px);
+}
+main .one:nth-child(2):hover{
+    filter: brightness(30%);
+}
+main .one:nth-child(3):hover{
+    filter: contrast(50%);
+}
+main .one:nth-child(2):hover{
+    filter: opacity(.3);
+}

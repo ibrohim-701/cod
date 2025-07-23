@@ -1,0 +1,365 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #222;
+    padding: 15px 40px;
+    animation: money 3s ease-in-out infinite;
+    position: relative;
+}
+
+@keyframes money {
+    0% {
+        top: 0;
+        left: 0;
+    }
+    30% {
+        top: 50px;
+        left: 0;
+    }
+    68%, 72% {
+        top: 50px;
+        left: 50px;
+    }
+    100% {
+        top: 100px;
+        left: 100px;
+    }
+}
+
+
+.nav h1 {
+    color: #fff;
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+.nav2 {
+    display: flex;
+    gap: 30px;
+}
+
+.nav2 a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.2s;
+}
+
+.nav2 a:hover {
+    color: #aaa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 40px auto 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.cart {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    animation: name 7s ease-in-out infinite;
+}
+
+.cart img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    animation: pubg 4s ease-in-out infinite;
+}
+
+.cart h1 {
+    font-size: 22px;
+    color: #222;
+    margin-bottom: 5px;
+}
+
+.cart p {
+    color: #555;
+    font-size: 15px;
+}
+
+/* Animatsiyalar */
+@keyframes name {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(3deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes pubg {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.king {
+    animation: capi 4s ease-in-out infinite;
+}
+
+@keyframes capi {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08) rotate(3deg);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 20px;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/24701-nature-natural-beauty.jpg/1200px-24701-nature-natural-beauty.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+main .box:nth-child(1) {
+    filter: blur(10px);
+}
+
+main .box:hover:nth-child(1) {
+    filter: blur(0px);
+}
+
+main .box:nth-child(2) {
+    filter: brightness(30%);
+}
+
+main .box:hover:nth-child(2) {
+    filter: brightness(120%);
+}
+
+main .box:nth-child(3) {
+    filter: invert(100%);
+}
+
+main .box:hover:nth-child(3) {
+    filter: invert(0%);
+}
+
+main .box:nth-child(4) {
+    filter: opacity(0.2);
+}
+
+main .box:hover:nth-child(4) {
+    filter: opacity(1);
+}
+
+main .box:nth-child(5) {
+    filter: saturate(3000%);
+}
+
+main .box:hover:nth-child(5) {
+    filter: saturate(100%);
+}
+
+main .box:nth-child(6) {
+    filter: sepia(100%);
+}
+
+main .box:hover:nth-child(6) {
+    filter: sepia(0%);
+}
+
+main .box:nth-child(7) {
+    filter: hue-rotate(90deg);
+}
+
+main .box:hover:nth-child(7) {
+    filter: hue-rotate(0deg);
+}
+
+main .box:nth-child(8) {
+    filter: drop-shadow(10px 10px 10px red);
+}
+
+main .box:hover:nth-child(8) {
+    filter: drop-shadow(0px 0px 0px red);
+}
+
+footer {
+    background: #222;
+    color: #fff;
+    margin-top: 40px;
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-radius: 10px 10px 0 0;
+}
+
+footer .jpg,
+footer .pgj {
+    flex: 1 1 300px;
+    padding: 0 30px;
+}
+
+footer .jpg h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+footer .pgj p {
+    font-size: 15px;
+    color: gray;
+}
+
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cart {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    footer .jpg,
+    footer .pgj {
+        padding: 10px 0;
+    }
+}
+
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+}
+
+header {
+    background: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+footer {
+    background: #222;
+    color: #fff;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-radius: 10px 10px 0 0;
+    animation: big 5s ease-in-out infinite;
+}
+
+@keyframes big {
+    0% {
+        background: red;
+    }
+
+    50% {
+        background: yellow;
+    }
+
+    100% {
+        background: green;
+    }
+}
+
+footer .jpg,
+footer .pgj {
+    flex: 1 1 300px;
+    padding: 10px;
+}
+
+footer .jpg h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+footer .pgj p {
+    font-size: 15px;
+    color: #ccc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer .jpg,
+    footer .pgj {
+        padding: 10px 0;
+    }
+}

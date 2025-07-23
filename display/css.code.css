@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  /* Header */
+  header {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+  }
+  
+  nav {
+    display: flex;
+    flex-direction: column; /* Bu elementlarni ustun shaklida joylashtiradi */
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    height: 100vh; /* Ekran balandligi */
+  }
+  
+  /* "Cafe sayti" uchun alohida uslub */
+  .logo {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px; /* "Cafe sayti" pastda joylashsin */
+    text-align: center;
+  }
+  
+  /* Navigatsiya havolalari */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column; /* Bosh saxifa, Menyu va Aloqa pastda joylashadi */
+    align-items: center;
+  }
+  
+  .nav-links li {
+    margin: 10px 0; /* Har bir havola o'rtasida bo'shliq */
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  .nav-links a:hover {
+    color: #e74c3c;
+  }

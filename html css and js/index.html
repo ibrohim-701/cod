@@ -1,0 +1,58 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Real Madrid Logosi</title>
+  <style>
+    .logo-container {
+      width: 300px;
+      margin: 40px auto;
+      text-align: center;
+    }
+    .logo-svg {
+      width: 200px;
+      height: 200px;
+      display: block;
+      margin: 0 auto;
+    }
+    .btn {
+      margin-top: 20px;
+      padding: 8px 16px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-container">
+    <svg class="logo-svg" viewBox="0 0 200 200">
+      <!-- Tashqi halqa -->
+      <circle cx="100" cy="100" r="90" fill="#fff" stroke="#f1c40f" stroke-width="10"/>
+      <!-- Ichki halqa -->
+      <circle cx="100" cy="100" r="70" fill="#fff" stroke="#00529f" stroke-width="8"/>
+      <!-- "M" harfi -->
+      <text x="100" y="120" text-anchor="middle" font-size="60" font-family="Arial" fill="#00529f" font-weight="bold">M</text>
+      <!-- "C" harfi -->
+      <text x="70" y="100" text-anchor="middle" font-size="40" font-family="Arial" fill="#00529f" font-weight="bold">C</text>
+      <!-- "F" harfi -->
+      <text x="130" y="100" text-anchor="middle" font-size="40" font-family="Arial" fill="#00529f" font-weight="bold">F</text>
+      <!-- Toj -->
+      <polygon points="100,25 110,55 100,45 90,55" fill="#f1c40f" stroke="#b8860b" stroke-width="2"/>
+      <circle cx="100" cy="25" r="6" fill="#b8860b"/>
+    </svg>
+    <button class="btn" onclick="changeColors()">Ranglarni o'zgartirish</button>
+  </div>
+  <script>
+    function changeColors() {
+      const svg = document.querySelector('.logo-svg');
+      const circles = svg.querySelectorAll('circle');
+      const texts = svg.querySelectorAll('text');
+      // Ranglarni almashtirish
+      circles[0].setAttribute('stroke', '#00529f');
+      circles[1].setAttribute('stroke', '#f1c40f');
+      texts.forEach(t => t.setAttribute('fill', '#f1c40f'));
+    }
+  </script>
+</body>
+</html>

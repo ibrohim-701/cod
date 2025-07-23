@@ -1,0 +1,53 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+
+h1 {
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.box {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ccc;
+  padding: 10px;
+  width: 420px;
+}
+
+.box img {
+  width: 100%;
+  border-radius: 10px;
+  transition: 0.4s ease;
+}
+.grayscale {
+  filter: grayscale(100%);
+}
+
+.sepia {
+  filter: sepia(100%);
+}
+
+.blur {
+  filter: blur(4px);
+}
+
+.bright {
+  filter: brightness(150%);
+}
+
+.box p {
+  margin: 10px 0;
+  font-weight: bold;
+}

@@ -1,0 +1,6 @@
+/* css/greater.css */
+div > p {
+    color: green;
+    font-style: italic;
+  }
+  

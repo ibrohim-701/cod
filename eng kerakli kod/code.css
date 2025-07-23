@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+}
+
+.box {
+    margin-top: 20px;
+    width: 350px;
+    cursor: pointer;
+    height: 350px;
+    background: blue;
+    transition: .7s;
+    border-radius: 4px;
+    background-repeat: no-repeat;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/24701-nature-natural-beauty.jpg/1200px-24701-nature-natural-beauty.jpg');
+}
+
+/* xiralashtirsh uchun */
+main .box:nth-child(1) {
+    filter: blur(11px);
+}
+
+main .box:hover:nth-child(1) {
+    filter: blur(0px);
+}
+
+/* yorqinlashtrish uchun */
+main .box:nth-child(2) {
+    filter: brightness(10%);
+}
+
+main .box:hover:nth-child(2) {
+    filter: brightness(400%);
+}
+
+/* qora oq qilish */
+main .box:nth-child(3) {
+    filter: invert(100%);
+}
+
+main .box:hover:nth-child(3) {
+    filter: invert(10%);
+}
+
+/* shafoflik */
+main .box:nth-child(4) {
+    filter: opacity(.2);
+}
+
+main .box:hover:nth-child(4) {
+    filter: opacity(1);
+}
+
+/* ranga toydirsh */
+main .box:nth-child(5) {
+    filter: saturate(3000%);
+}
+
+main .box:hover:nth-child(5) {
+    filter: saturate(190%);
+}
+
+/* qora oq */
+main .box:nth-child(6) {
+    filter: sepia(100%);
+}
+
+main .box:hover:nth-child(6) {
+    filter: sepia(10%);
+}
+
+/* rangi aylantirish */
+main .box:nth-child(7) {
+    filter: hue-rotate(90deg);
+}
+
+main .box:hover:nth-child(7) {
+    filter: hue-rotate(0);
+}
+
+/*soya drop */
+main .box:nth-child(8) {
+    filter: drop-shadow(20px 10px 0px red);
+}
+
+main .box:hover:nth-child(8) {
+    filter: drop-shadow(0px 0px 0px red);
+}

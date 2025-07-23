@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.ota {
+    width: 500px;
+    height: 500px;
+    border: 2px solid black;
+    margin: auto;
+    margin-top: 20px;
+    position: relative;
+}
+.child {
+    width: 200px;
+    height: 200px;
+    background: blue;
+    border-radius: 4px;
+    position: 4px;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    left: 0;
+}

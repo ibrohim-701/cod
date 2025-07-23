@@ -1,0 +1,44 @@
+h1 {
+    color: brown;
+    font-size: 2em;
+}
+
+.container > p {
+    color: blue;
+    font-weight: bold;
+}
+
+.box p {
+    color: darkblue;
+}
+
+.box span {
+    display: block;
+    margin-top: 5px;
+}
+
+body > p {
+    color: blue;
+    font-weight: bold;
+}
+
+ul li {
+    color: brown;
+    list-style-type: disc;
+}
+
+h2 {
+    color: black;
+    font-size: 1.5em;
+}
+
+h2 + p {
+    background-color: yellow;
+    color: blue;
+    font-weight: bold;
+}
+
+h2 + p + p {
+    color: blue;
+    border: 1px dashed grey;
+}

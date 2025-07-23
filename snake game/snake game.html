@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+#snake-game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 0;
+}
+#snake-game {
+    background: #222;
+    border: 3px solid #4caf50;
+    display: block;
+}
+#snake-score {
+    color: #333;
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+</style>
+<div id="snake-game-container">
+    <h2>Snake O'yini</h2>
+    <canvas id="snake-game" width="320" height="320"></canvas>
+    <div id="snake-score">Hisob: 0</div>
+    <button onclick="startSnakeGame()">Qayta boshlash</button>
+</div>
+<script>
+const canvas = document.getElementById('snake-game');
+const ctx = canvas.getContext('2d');
+const box = 20;
+let snake, food, direction, score, gameInterval;
+
+function resetSnakeGame() {
+    snake = [{x: 8, y: 8}];
+    direction = 'RIGHT';
+    food = {
+        x: Math.floor(Math.random() * 16),
+        y: Math.floor(Math.random() * 16)
+    };
+    score = 0;
+    document.getElementById('snake-score').textContent = 'Hisob: ' + score;
+}
+
+function drawSnakeGame() {
+    ctx.fillStyle = '#222';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Draw snake
+    for (let i = 0; i < snake.length; i++) {
+        ctx.fillStyle = i === 0 ? '#4caf50' : '#8bc34a';
+        ctx.fillRect(snake[i].x * box, snake[i].y * box, box, box);
+    }
+
+    // Draw food
+    ctx.fillStyle = '#f44336';
+    ctx.fillRect(food.x * box, food.y * box, box, box);
+}
+
+function updateSnakeGame() {
+    let head = {x: snake[0].x, y: snake[0].y};
+    if (direction === 'LEFT') head.x--;
+    if (direction === 'UP') head.y--;
+    if (direction === 'RIGHT') head.x++;
+    if (direction === 'DOWN') head.y++;
+
+    // Game over conditions
+    if (
+        head.x < 0 || head.x >= 16 ||
+        head.y < 0 || head.y >= 16 ||
+        snake.some(segment => segment.x === head.x && segment.y === head.y)
+    ) {
+        clearInterval(gameInterval);
+        alert("O'yin tugadi! Hisob: " + score);
+        return;
+    }
+
+    snake.unshift(head);
+
+    // Eat food
+    if (head.x === food.x && head.y === food.y) {
+        score++;
+        document.getElementById('snake-score').textContent = 'Hisob: ' + score;
+        food = {
+            x: Math.floor(Math.random() * 16),
+            y: Math.floor(Math.random() * 16)
+        };
+    } else {
+        snake.pop();
+    }
+
+    drawSnakeGame();
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowLeft' && direction !== 'RIGHT') direction = 'LEFT';
+    if (e.key === 'ArrowUp' && direction !== 'DOWN') direction = 'UP';
+    if (e.key === 'ArrowRight' && direction !== 'LEFT') direction = 'RIGHT';
+    if (e.key === 'ArrowDown' && direction !== 'UP') direction = 'DOWN';
+});
+
+function startSnakeGame() {
+    clearInterval(gameInterval);
+    resetSnakeGame();
+    drawSnakeGame();
+    gameInterval = setInterval(updateSnakeGame, 120);
+}
+
+// Auto start on load
+startSnakeGame();
+</script>   
+</body>
+</html>

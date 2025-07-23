@@ -1,0 +1,6 @@
+/* css/tilde.css */
+div ~ p {
+    color: purple;
+    background-color: #f0f0f0;
+  }
+  

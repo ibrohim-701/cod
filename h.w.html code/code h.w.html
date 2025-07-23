@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>Margin, Padding, Border Misollar</title>
+<style>
+    .box1, .box2 {
+    border: 1px solid red;
+    margin: 30px 0;
+    padding: 10px;
+    background-color:  blue;
+    }
+
+    .box2 {
+    margin-top: 30px;
+    background-color: gold;
+    }
+
+    .padding-box {
+    border: 1px dashed green;
+    padding: 20px;
+    margin-bottom: 30px;
+    background-color: orange ;
+    }
+
+    .border-solid {
+      border: 1px solid black;
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+
+    .border-dashed {
+      border: 1px dashed red;
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+
+    .border-double {
+      border: 3px double slateblue;
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+
+    h1{
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>1. Margin Collapsing Misoli</h1>
+
+  <div class="box1">
+    Bu birinchi div. margin-bottom: 30px;
+  </div>
+
+  <div class="box2">
+    Bu ikkinchi div. margin-top: 30px;<br>
+    Oradagi bo'shliq 60px emas, faqat 30px bo'ladi (collapsing sababi bilan).
+  </div>
+
+  <h1>2. Padding Misoli</h1>
+  <div class="padding-box">
+    Bu divda padding: 20px qo'llangan. Matn borderdan 20px ichkarida.
+  </div>
+
+  <h1>3. Turli Border Ko'rinishlari</h1>
+  <div class="border-solid">
+    Bu solid (qattiq) border.
+  </div>
+
+  <div class="border-dashed">
+    Bu dashed (uzuq-uzuq) border.
+  </div>
+
+  <div class="border-double">
+    Bu double (ikki qavatli) border.
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+/* Reset and base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    background: grey;
+    justify-content: space-around;
+}
+
+.right-nav {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+nav h1 {
+    font-size: 33px;
+    font-family: sans-serif;
+    color: aliceblue;
+}
+
+.right-nav a {
+    text-decoration: none;
+    font-size: 19px;
+    color: aliceblue;
+    font-family: sans-serif;
+}
+
+.right-nav svg {
+    display: none;
+}
+
+/* Main section */
+main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 100px;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.text-main {
+    width: 500px;
+}
+
+.text-main h1 {
+    font-size: 44px;
+    font-family: sans-serif;
+    color: darkgoldenrod;
+}
+
+.text-main p {
+    font-size: 15px;
+    font-family: cursive;
+    color: goldenrod;
+    margin-top: 20px;
+}
+
+.btn {
+    display: flex;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.btn button {
+    width: 130px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    background: goldenrod;
+    color: aliceblue;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+main img {
+    width: 800px;
+    border-radius: 4px;
+    max-width: 100%;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 400px) {
+    nav {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px;
+        background: rgb(170, 124, 9);
+        width: 100%;
+    }
+
+    .right-nav a {
+        display: none;
+    }
+
+    .right-nav svg {
+        display: block;
+        width: 50px;
+        height: 35px;
+    }
+
+    main {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
+    }
+
+    .text-main {
+        width: 90%;
+        text-align: center;
+    }
+
+    .btn {
+        justify-content: center;
+    }
+
+    main img {
+        width: 90%;
+        margin-top: 50px;
+    }
+}

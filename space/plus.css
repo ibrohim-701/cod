@@ -1,0 +1,6 @@
+/* css/plus.css */
+div + p {
+    color: red;
+    text-decoration: underline;
+  }
+  
